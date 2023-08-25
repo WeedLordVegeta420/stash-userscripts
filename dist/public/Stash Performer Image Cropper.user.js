@@ -30,6 +30,9 @@
 
     const css = GM_getResourceText("IMPORTED_CSS");
     GM_addStyle(css);
+    
+    // The generated image iamge from cropperjs had problems with a transition property set somewhere else on stash. This CSS style cancels that effect.
+    GM_addStyle(`.cropper-view-box img { -webkit-transition: none !important; -moz-transition: none !important; -o-transition: none !important; transition: none !important; }`);
 
     let cropping = false;
     let cropper = null;
